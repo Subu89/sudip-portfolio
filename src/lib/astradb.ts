@@ -30,8 +30,8 @@ export async function getVectorStore() {
 }
 
 export async function getEmbeddingsCollection() {
-  const client = new DataAPIClient();
-  const db = client.db(token, endpoint);
+  const client = new DataAPIClient(token);
+  const db = client.db(endpoint);
   console.log("astra_db", db);
   await db.createCollection(collection);
   const cl = await db.collection(collection);
